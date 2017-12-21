@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.greatm</groupId>
+    <artifactId>greatm</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>greatm-api</module>
+        <module>greatm-biz</module>
+        <module>greatm-client</module>
+        <module>greatm-service</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <java.encoding>UTF-8</java.encoding>
+        <webx-version>3.2.4</webx-version>
+        <spring-version>3.2.7.RELEASE</spring-version>
+        <springext-plugin-version>1.2</springext-plugin-version>
+        <jetty-version>8.1.13.v20130916</jetty-version>
+        <autoconfig-plugin-version>1.2</autoconfig-plugin-version>
+        <project.build.sourceEncoding>${java.encoding}</project.build.sourceEncoding>
+        <activiti.version>5.17.0</activiti.version>
+        <productionMode>false</productionMode>
+    </properties>
+
+
+</project>
