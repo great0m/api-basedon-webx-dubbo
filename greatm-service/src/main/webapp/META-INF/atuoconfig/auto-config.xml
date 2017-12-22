@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+    <script>
+
+        <generate template="templates/logback.xml"
+                  destfile="WEB-INF/logback.xml" charset="utf-8"/>
+
+        <generate template="templates/service-register.xml"
+                  destfile="WEB-INF/classes/services/service-register.xml" charset="utf-8"/>
+
+    </script>
+
+</config>
