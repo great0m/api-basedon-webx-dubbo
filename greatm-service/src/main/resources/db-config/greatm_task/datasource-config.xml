@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <bean id="dataSourceTask" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+          destroy-method="close">
+        <property name="driverClassName" value="org.gjt.mm.mysql.Driver"/>
+        <property name="url" value="jdbc:mysql://10.0.1.56:3306/greatm_task?noAccessToProcedureBodies=true"/>
+        <property name="username" value="api_task"/>
+        <property name="password"
+                  value="MRduqEFNbGDctLTnyYqvXeawQRnpjaVn8ApZapbUw3Qd8BKD40O+JhyjZlLzpsUmd020iLXyEb4UzfSiqcNnaQ=="/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="testOnReturn" value="true"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="validationQuery" value="select 1 "/>
+        <property name="validationQueryTimeout" value="30000"/>
+
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <property name="initialSize" value="5"/>
+        <!-- 初始连接数 -->
+        <property name="minIdle" value="2"/>
+        <!-- 最小空闲连接数 -->
+        <property name="maxIdle" value="10"/>
+        <!-- 最大空闲连接数 -->
+        <property name="maxActive" value="20"/>
+        <!-- 最大连接数 -->
+        <property name="connectionProperties"
+                  value="autoReconnect=true;useUnicode=true;characterEncoding=utf8;allowMultiQueries=true;config.decrypt=true"/>
+        <property name="filters" value="mergeStat,wall,config"/>
+    </bean>
+
+    <bean id="transactionManagerTask"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSourceTask"/>
+    </bean>
+
+    <bean id="sqlSessionFactoryTask" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:db-config/greatm_task/mybatis-config.xml"></property>
+        <property name="dataSource" ref="dataSourceTask"/>
+    </bean>
+
+    <!-- 自动注册mybatis mapper bean -->
+    <!-- 注意,没有必要去指定SqlSessionFactory或SqlSessionTemplate,
+        因为MapperScannerConfigurer将会创建 MapperFactoryBean，之后自动装配。
+        但是，如果你使 用了一个以上的DataSource，那 么自动装配可能会失效。
+        这种情况下,你可以使用 sqlSessionFactoryBeanName或sqlSessionTemplateBeanName
+        属性来设置正确的 bean名称来使用。 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.greatm.biz.taskdao" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryTask" />
+    </bean>
+</beans>

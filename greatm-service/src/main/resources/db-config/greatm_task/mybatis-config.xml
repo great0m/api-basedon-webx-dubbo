@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <mappers>
+        <mapper resource="db-config/jupiter_task/mappers/TTaskRelease.xml"/>
+        <mapper resource="db-config/jupiter_task/mappers/TTaskReleaseCustom.xml"/>
+        <mapper resource="db-config/jupiter_task/mappers/TTaskSchedule.xml"/>
+        <mapper resource="db-config/jupiter_task/mappers/TTaskCeleEnroll.xml"/>
+        <mapper resource="db-config/jupiter_task/mappers/TTaskBizBalance.xml"/>
+        <mapper resource="db-config/jupiter_task/mappers/TTaskCeleBalance.xml"/>
+        <mapper resource="db-config/jupiter_task/mappers/TTaskBizCancel.xml"/>
+        <mapper resource="db-config/jupiter_task/mappers/TTaskComplain.xml"/>
+        <mapper resource="db-config/jupiter_task/mappers/TTaskComplainPic.xml"/>
+        <mapper resource="db-config/jupiter_task/mappers/TStudioHotList.xml"/>
+        <mapper resource="db-config/jupiter_task/mappers/TStudioPlayBase.xml"/>
+        <mapper resource="db-config/jupiter_task/mappers/TTaskComment.xml"/>
+        <mapper resource="db-config/jupiter_task/mappers/TFinanceIncome.xml"/>
+        <mapper resource="db-config/jupiter_task/mappers/TFinanceExpenditure.xml"/>
+        <mapper resource="db-config/jupiter_task/mappers/TTaskExperCustomerList.xml"/>
+        <mapper resource="db-config/jupiter_task/mappers/TTaskExperCustomerReward.xml"/>
+        <mapper resource="db-config/jupiter_task/mappers/TTaskExperRelease.xml"/>
+    </mappers>
+</configuration>
