@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <group name="wlscm">
+
+	</group>
+	
+    <script>
+
+        <generate template="templates/uris.xml"
+                  destfile="WEB-INF/common/uris.xml" charset="utf-8"/>
+
+        <generate template="templates/logback.xml"
+                  destfile="WEB-INF/logback.xml" charset="utf-8"/>
+
+        <generate template="templates/interface-register.xml"
+                  destfile="WEB-INF/classes/services/interface-register.xml" charset="utf-8"/>
+
+        <!--<generate template="templates/interface-base-client.xml"-->
+                  <!--destfile="WEB-INF/classes/services/interface-base-client.xml" charset="utf-8"/>-->
+
+        <generate template="templates/global.properties"
+                  destfile="WEB-INF/classes/config/global.properties" charset="utf-8"/>
+
+        <generate template="templates/cache-manager.xml"
+                  destfile="WEB-INF/classes/config/cache/cache-manager.xml" charset="utf-8"/>
+    </script>
+</config>

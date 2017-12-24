@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Logback Configuration.     -->
+<!-- 此配置文件用于API打包         -->
+<!-- auth:Jim, date: 2016-10-18 -->
+
+<configuration debug="false">
+
+    <!-- root.log -->
+    <appender name="rootFile"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${log_home}/root.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>
+                ${log_home}/root.log.%d{yyyy-MM-dd}
+            </FileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern><![CDATA[
+%n%-4r [%d{yyyy-MM-dd HH:mm:ss} %X{productionMode}] - %X{method} %X{requestURIWithQueryString} [ip=%X{remoteAddr}, ref=%X{referrer}, ua=%X{userAgent}, sid=%X{cookie.JSESSIONID}]%n  %-5level %logger{35} - %m%n
+            ]]></pattern>
+        </layout>
+    </appender>
+
+    <!-- jupiter-web.log -->
+    <appender name="webFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${log_home}/jupiter-web.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>
+                ${log_home}/jupiter-web.log.%d{yyyy-MM-dd}
+            </FileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern><![CDATA[
+%n%-4r [%d{yyyy-MM-dd HH:mm:ss} %X{productionMode}] - %X{method} %X{requestURIWithQueryString} [ip=%X{remoteAddr}, ref=%X{referrer}, ua=%X{userAgent}, sid=%X{cookie.JSESSIONID}]%n  %-5level %logger{35} - %m%n
+            ]]></pattern>
+        </layout>
+    </appender>
+
+    <!-- jupiter-thirdparty.log -->
+    <appender name="thirdpartyFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${log_home}/jupiter-thirdparty.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>
+                ${log_home}/jupiter-thirdparty.log.%d{yyyy-MM-dd}
+            </FileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern><![CDATA[
+%n%-4r [%d{yyyy-MM-dd HH:mm:ss} %X{productionMode}] - %X{method} %X{requestURIWithQueryString} [ip=%X{remoteAddr}, ref=%X{referrer}, ua=%X{userAgent}, sid=%X{cookie.JSESSIONID}]%n  %-5level %logger{35} - %m%n
+            ]]></pattern>
+        </layout>
+    </appender>
+
+    <!-- jupiter-redis.log -->
+    <appender name="redisFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${log_home}/jupiter-redis.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>
+                ${log_home}/jupiter-redis.log.%d{yyyy-MM-dd}
+            </FileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern><![CDATA[
+%n%-4r [%d{yyyy-MM-dd HH:mm:ss} %X{productionMode}] - %X{method} %X{requestURIWithQueryString} [ip=%X{remoteAddr}, ref=%X{referrer}, ua=%X{userAgent}, sid=%X{cookie.JSESSIONID}]%n  %-5level %logger{35} - %m%n
+            ]]></pattern>
+        </layout>
+    </appender>
+
+    <!-- jupiter-diamond.log -->
+    <appender name="diamondFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${log_home}/jupiter-diamond.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>
+                ${log_home}/jupiter-redis.log.%d{yyyy-MM-dd}
+            </FileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern><![CDATA[
+%n%-4r [%d{yyyy-MM-dd HH:mm:ss} %X{productionMode}] - %X{method} %X{requestURIWithQueryString} [ip=%X{remoteAddr}, ref=%X{referrer}, ua=%X{userAgent}, sid=%X{cookie.JSESSIONID}]%n  %-5level %logger{35} - %m%n
+            ]]></pattern>
+        </layout>
+    </appender>
+
+    <!-- LOGs -->
+
+    <logger name="com.mj.jupiter.api.webx.pipeline.DefaultAnalyzeURLValve" level="INFO" additivity="false">
+        <appender-ref ref="webFile"/>
+    </logger>
+
+    <logger name="com.mj.jupiter.api.util.cache.JedisHelper">
+        <level value="INFO"/>
+        <appender-ref ref="redisFile"/>
+    </logger>
+
+    <logger name="com.mj.jupiter.api.module.screen.Diamond">
+        <level value="INFO"/>
+        <appender-ref ref="diamondFile"/>
+    </logger>
+
+    <logger name="org.apache">
+        <level value="WARN"/>
+        <appender-ref ref="rootFile"/>
+    </logger>
+
+    <logger name="java.sql">
+        <level value="WARN"/>
+        <appender-ref ref="rootFile"/>
+    </logger>
+
+    <root>
+        <level value="${log_level}"/>
+        <appender-ref ref="rootFile"/>
+    </root>
+</configuration>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+
+<!-- 打包专用 -->
+
+<!-- 0: 直播信息 -->
+<!-- 1: 静态数据 -->
+<!-- 2:  -->
+<!-- 10: 太平活动专用 -->
+
+<beans>
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxActive"     value="${redis_max_active}" />
+        <property name="maxIdle"       value="${redis_max_idle}" />
+        <property name="maxWait"       value="${redis_max_wait}" />
+        <property name="testOnBorrow"  value="${test_on_borrow}" />
+    </bean>
+
+    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+        <!-- config -->
+        <constructor-arg index="0" ref="jedisPoolConfig"/>
+        <!-- host -->
+        <constructor-arg index="1" value="${redis_host}"/>
+        <!-- port -->
+        <constructor-arg index="2" value="${redis_port}"/>
+        <!-- timeout -->
+        <constructor-arg index="3" value="${redis_timeout}"/>
+        <!-- password -->
+        <constructor-arg index="4" value="${redis_password}"/>
+        <!-- index -->
+        <constructor-arg index="5" value="0"/>
+    </bean>
+
+    <bean id="configPool" class="redis.clients.jedis.JedisPool">
+        <!-- config -->
+        <constructor-arg index="0" ref="jedisPoolConfig"/>
+        <!-- host -->
+        <constructor-arg index="1" value="${redis_host}"/>
+        <!-- port -->
+        <constructor-arg index="2" value="${redis_port}"/>
+        <!-- timeout -->
+        <constructor-arg index="3" value="${redis_timeout}"/>
+        <!-- password -->
+        <constructor-arg index="4" value="${redis_password}"/>
+        <!-- index -->
+        <constructor-arg index="5" value="1"/>
+    </bean>
+
+</beans>
