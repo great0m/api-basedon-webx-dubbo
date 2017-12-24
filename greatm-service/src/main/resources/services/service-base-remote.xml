@@ -15,4 +15,6 @@
     <dubbo:service version="1.0" interface="com.greatm.client.ITaskService"
                    ref="taskService" protocol="dubbo" group="greatm.daily"/>
 
+    <dubbo:service version="1.0" interface="com.greatm.client.IAccountService"
+                   ref="accountService" protocol="dubbo" group="greatm.daily"/>
 </beans>

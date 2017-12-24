@@ -16,4 +16,7 @@
                      interface="com.greatm.client.ITaskService"
                      group="greatm.daily"/>
 
+    <dubbo:reference version="1.0" id="accountService" registry="dubbo-registry"
+                     interface="com.greatm.client.IAccountService"
+                     group="greatm.daily"/>
 </beans>
