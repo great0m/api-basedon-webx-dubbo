@@ -11,14 +11,9 @@ public class LoginUserModel extends BaseResponseModel implements Serializable {
     private long accoid;
     private String name;
 
-    private String token;
-
     private String imgCode;
     private String deviceId;
     private String registerId;
-
-    private String hasSub;
-
 
     public LoginUserModel() {
     }
@@ -27,5 +22,44 @@ public class LoginUserModel extends BaseResponseModel implements Serializable {
         super(dataStr, displayError);
     }
 
-    
+
+    public long getAccoid() {
+        return accoid;
+    }
+
+    public void setAccoid(long accoid) {
+        this.accoid = accoid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getImgCode() {
+        return imgCode;
+    }
+
+    public void setImgCode(String imgCode) {
+        this.imgCode = imgCode;
+    }
+
+    public String getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    public String getRegisterId() {
+        return registerId;
+    }
+
+    public void setRegisterId(String registerId) {
+        this.registerId = registerId;
+    }
 }

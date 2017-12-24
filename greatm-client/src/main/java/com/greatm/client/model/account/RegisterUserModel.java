@@ -8,22 +8,11 @@ import java.io.Serializable;
  */
 public class RegisterUserModel implements Serializable {
 
-    private String name;
     private String mobile;
     private String password;
-    private String imToken;
 
     private String deviceId;
     private String registerId;
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getMobile() {
         return mobile;
@@ -39,14 +28,6 @@ public class RegisterUserModel implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getImToken() {
-        return imToken;
-    }
-
-    public void setImToken(String imToken) {
-        this.imToken = imToken;
     }
 
     public String getDeviceId() {
